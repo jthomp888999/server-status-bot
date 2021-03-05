@@ -21,8 +21,17 @@ async def on_ready():
 @bot.command(name="status")
 async def send_status(ctx):
     result = await get_info()
-    await ctx.send(result)
 
+    server_name = result["server_name"]
+    server_time = result["server_time"]
+    status = result["status"]
+    players_online = result["players_online"]
+
+    embed=discord.Embed(title=f"{server_name} Info")
+    embed.add_field(name="Current Time:", value=f"{server_time}", inline=True)
+    embed.add_field(name="Satus:", value=f"{status}", inline=True)
+    embed.set_footer(text=f"There are currently {players_online} players online.")
+    await ctx.send(embed=embed)
 
 
 bot.run(DISCORD_TOKEN)
