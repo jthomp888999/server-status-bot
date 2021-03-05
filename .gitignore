@@ -1,3 +1,4 @@
 .env
 .vscode/
 *.pyc
+.runtim.txt.swp
