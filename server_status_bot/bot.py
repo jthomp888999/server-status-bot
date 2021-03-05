@@ -33,5 +33,5 @@ async def send_status(ctx):
     embed.set_footer(text=f"There are currently {players_online} players online.")
     await ctx.send(embed=embed)
 
-
-bot.run(DISCORD_TOKEN)
+if __name__ == "__main__":
+    bot.run(DISCORD_TOKEN)
