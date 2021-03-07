@@ -44,11 +44,11 @@ async def send_status(ctx):
 
     # Decide which sentence to use based on player count, for grammer
     if players_online == 0:
-        message = "There are no players online"
+        message = "There are no players online."
     elif players_online == 1:
         message = f"There is {players_online} player online."
     elif players_online > 1:
-        message = f"There are {players_online} players online"
+        message = f"There are {players_online} players online."
 
     # Discord's embed, for making the output look presentable
     embed=discord.Embed(title=f"{server_name} Info")
