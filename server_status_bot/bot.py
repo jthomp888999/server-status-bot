@@ -27,10 +27,17 @@ async def send_status(ctx):
     status = result["status"]
     players_online = result["players_online"]
 
+    if players_online == 0:
+        message = "There are no players online"
+    elif players_online == 1:
+        message = f"There is {players_online} player online."
+    else:
+        message = f"There are {players_online} players online"
+
     embed=discord.Embed(title=f"{server_name} Info")
     embed.add_field(name="Current Time:", value=f"{server_time}", inline=True)
-    embed.add_field(name="Satus:", value=f"{status}", inline=True)
-    embed.set_footer(text=f"There are currently {players_online} players online.")
+    embed.add_field(name="Status:", value=f"{status}", inline=True)
+    embed.set_footer(text=f"{message}")
     await ctx.send(embed=embed)
 
 bot.run(DISCORD_TOKEN)
