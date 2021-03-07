@@ -1,13 +1,16 @@
 import os
+import logging
 import discord
 from discord.ext import commands
 from dotenv import load_dotenv
 
 from api_handler import get_info
 
+# Setup logging
+logging.basicConfig(level=logging.INFO)
 
 # Change to False before pushing to mains
-TESTING = True
+TESTING = False
 
 load_dotenv()
 if TESTING:
