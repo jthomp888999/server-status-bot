@@ -5,12 +5,17 @@ from dotenv import load_dotenv
 
 from api_handler import get_info
 
-load_dotenv()
-# Change in .env file
-DISCORD_TOKEN = os.getenv("DISCORD_TOKEN")
 
 # Change to False before pushing to mains
 TESTING = True
+
+load_dotenv()
+if TESTING:
+    # Change in .env file
+    DISCORD_TOKEN = os.getenv("DISCORD_TOKEN_TESTING")
+else:
+    DISCORD_TOKEN = os.getenv("DISCORD_TOKEN")
+
 
 intents = discord.Intents.default()
 
