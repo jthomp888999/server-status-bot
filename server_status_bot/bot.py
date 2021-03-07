@@ -13,8 +13,10 @@ load_dotenv()
 if TESTING:
     # Change in .env file
     DISCORD_TOKEN = os.getenv("DISCORD_TOKEN_TESTING")
+    TRIGGER = "test"
 else:
     DISCORD_TOKEN = os.getenv("DISCORD_TOKEN")
+    TRIGGER = "status"
 
 
 intents = discord.Intents.default()
@@ -30,7 +32,7 @@ async def on_ready():
     print(f"logged in as {bot_name}, {bot_id}")
 
 # Send status when trigger word seen
-@bot.command(name="status")
+@bot.command(name=TRIGGER)
 async def send_status(ctx):
     result = await get_info()
 
