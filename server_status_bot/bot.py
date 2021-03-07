@@ -10,7 +10,7 @@ from api_handler import get_info
 logging.basicConfig(level=logging.WARNING)
 
 # Change to False before pushing to mains
-TESTING = False
+TESTING = True
 
 load_dotenv()
 if TESTING:
