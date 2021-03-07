@@ -7,7 +7,7 @@ from api_handler import get_info
 
 
 # Change to False before pushing to mains
-TESTING = True
+TESTING = False
 
 load_dotenv()
 if TESTING:
