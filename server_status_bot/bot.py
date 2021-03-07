@@ -25,13 +25,13 @@ async def send_status(ctx):
     server_name = result["server_name"]
     server_time = result["server_time"]
     status = result["status"]
-    players_online = result["players_online"]
+    players_online = int(result["players_online"])
 
     if players_online == 0:
         message = "There are no players online"
     elif players_online == 1:
         message = f"There is {players_online} player online."
-    else:
+    elif players_online > 1:
         message = f"There are {players_online} players online"
 
     embed=discord.Embed(title=f"{server_name} Info")
