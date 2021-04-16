@@ -4,7 +4,7 @@ import discord
 from discord.ext import commands
 from dotenv import load_dotenv
 
-from api_handler import get_info
+from server_query import get_info
 
 # Setup logging
 logging.basicConfig(level=logging.WARNING)
@@ -13,7 +13,8 @@ logging.basicConfig(level=logging.WARNING)
 TESTING = True
 
 load_dotenv()
-ADDRESS = os.getenv("SERVER_IP_QUERY_PORT")
+
+ADDRESS = ('192.169.93.61', 2303)
 if TESTING:
     # Change in .env file
     DISCORD_TOKEN = os.getenv("DISCORD_TOKEN_TESTING")
@@ -38,13 +39,14 @@ async def on_ready():
 # Send status when trigger word seen
 @bot.command(name=TRIGGER)
 async def send_status(ctx):
-    result = await get_info()
+    result = await get_info(ADDRESS)
 
     # Pull values from API response
     server_name = result["server_name"]
-    server_time = result["server_time"]
-    status = result["status"]
-    players_online = int(result["players_online"])
+    server_time = result["keywords"][-5:]
+    # status = result["status"]
+    status = "Online" # Until better error handeling 
+    players_online = result["player_count"]
 
     # Decide which sentence to use based on player count, for grammer
     if players_online == 0:
