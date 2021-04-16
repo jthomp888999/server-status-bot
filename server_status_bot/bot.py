@@ -10,7 +10,7 @@ from server_query import get_info
 logging.basicConfig(level=logging.WARNING)
 
 # Change to False before pushing to mains
-TESTING = True
+TESTING = False
 
 load_dotenv()
 
