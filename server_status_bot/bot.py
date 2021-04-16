@@ -13,6 +13,7 @@ logging.basicConfig(level=logging.WARNING)
 TESTING = True
 
 load_dotenv()
+ADDRESS = os.getenv("SERVER_IP_QUERY_PORT")
 if TESTING:
     # Change in .env file
     DISCORD_TOKEN = os.getenv("DISCORD_TOKEN_TESTING")
