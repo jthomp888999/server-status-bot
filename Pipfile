@@ -8,6 +8,7 @@ python-dotenv = "*"
 aiohttp = "*"
 asyncio = "*"
 "discord.py" = "*"
+python-a2s = "*"
 
 [dev-packages]
 
